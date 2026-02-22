@@ -1,0 +1,41 @@
+.collection-strip {
+  width: 100%;
+  background-color: #161616;
+  overflow: hidden;
+}
+
+.collection-list {
+  height: clamp(580px, 42vw, 640px);
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.collection-item {
+  flex: 1;
+  position: relative;
+}
+
+.collection-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.collection-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .collection-strip {
+    overflow-x: auto;
+  }
+
+  .collection-item {
+    flex: 0 0 82%;
+  }
+}

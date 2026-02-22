@@ -1,0 +1,118 @@
+.arrival-container {
+  width: 100%;
+  padding: 4rem 20px;
+}
+
+.arrival-grid {
+  display: grid;
+  gap: 40px;
+}
+
+.arrival-div {
+  text-align: center;
+  padding-bottom: 1.5rem;
+}
+
+.arrival-heading {
+  font-family: "ProtomoOutline";
+  font-size: 1.5rem;
+  font-style: italic;
+  letter-spacing: 0.20rem;
+  text-transform: uppercase;
+}
+
+.arrival-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 15px;
+}
+
+.arrival-card {
+  display: grid;
+  gap: 20px;
+  position: relative;
+}
+
+.arrival-figure {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+  object-position: center;
+  transition: opacity 0.3s ease;
+}
+
+.product-card__image--secondary {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.arrival-figure:hover .product-card__image--secondary {
+  opacity: 1;
+}
+
+.arrival-figure:hover .product-card__image--primary {
+  opacity: 0;
+}
+
+.badge-list {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 2;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 4px 8px;
+  background: black;
+  color: white;
+  text-transform: uppercase;
+}
+
+.badge--on-sale {
+  background: crimson;
+}
+
+.arrive-bottom-div {
+  text-align: center;
+}
+
+.arrival-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 15px;
+  text-decoration: none;
+  background: linear-gradient(
+    to bottom,
+    #fff 0,
+    rgba(129, 129, 129, 0.75) 3%,
+    rgba(56, 56, 56, 0.75) 50%,
+    rgba(27, 27, 27, 0.75) 50% 50%,
+    rgba(12, 12, 12, 0.75) 100%
+  );
+  border: 1px solid #161616;
+  color: #f7f4f4;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.arrival-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+@media (min-width: 768px) {
+  .arrival-list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 20px;
+  }
+}

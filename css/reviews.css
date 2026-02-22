@@ -1,0 +1,79 @@
+.press-media-section {
+  padding: 4rem 1.5rem;
+  background-color: #c4c4c4;
+}
+
+.press-media-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.press-media-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.press-media-label {
+  font-family: "ProtomoOutline";
+  font-size: 1.5rem;
+  font-style: italic;
+  letter-spacing: 0.20rem;
+  text-transform: uppercase;
+}
+
+.press-media-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 85%;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  gap: 4rem;
+}
+
+.press-media-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: center;
+  gap: 2rem;
+}
+
+.press-media-image-link {
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.press-media-image-link img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  transition: transform 0.35s ease;
+}
+
+.press-media-image-link:hover img {
+  transform: scale(1.06);
+}
+
+.press-media-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .press-media-grid {
+    grid-auto-columns: 45%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .press-media-grid {
+    grid-auto-flow: unset;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+  }
+}

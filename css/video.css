@@ -1,0 +1,24 @@
+.video-section {
+  width: 100%;
+  overflow: hidden;
+  background-color: #161616;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+}
+
+.video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .video-wrapper {
+    aspect-ratio: 21 / 9; 
+  }
+}

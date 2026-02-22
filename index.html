@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <title>Elegant Streetwear</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/header.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/featured.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/marquee.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/categories.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/arrivals.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/bisection.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/video.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/reviews.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/footer.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <!-- LEFT -->
+            <div class="header-left">
+                <!-- HAMBURGER (MOBILE) -->
+                <button class="hamburger-btn" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- SEARCH -->
+                <a href="#" class="header-icon">
+                    <i class="fa fa-search"></i>
+                </a>
+                <!-- DESKTOP NAV -->
+                <nav class="header-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item nav-dropdown">
+                            <details class="dropdown-root">
+                                <summary class="nav-link">
+                                    SHOP <i class="fa fa-chevron-down"></i>
+                                </summary>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">VIEW ALL</a></li>
+                                    <li><a href="#">HOODIES</a></li>
+                                    <li><a href="#">SHIRTS</a></li>
+                                    <li><a href="#">SHORTS</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">SIGN UP</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- CENTER LOGO -->
+            <div class="header-logo">
+                <a href="/" class="logo-link">
+                    <video class="site-logo" autoplay muted loop playsinline preload="metadata" poster="">
+                        <source src="/videos/logo-3d.webm" type="video/mp4">
+                        Tu navegador no soporta video HTML5.>
+                    </video>
+                </a>
+            </div>
+            <!-- RIGHT -->
+            <div class="header-right">
+                <nav class="social-nav">
+                    <a href="#" class="social-link">INSTAGRAM</a>
+                    <a href="#" class="social-link">TIKTOK</a>
+                </nav>
+                <a href="#" class="header-icon">
+                    <i class="fa fa-shopping-bag icon cart-icon" data-count="0" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEARCH PANEL -->
+    <div class="search-panel" id="searchPanel">
+        <div class="search-overlay" id="searchOverlay"></div>
+        <div class="search-box">
+            <input type="text" placeholder="Search products..." autofocus>
+            <button class="search-close" id="searchClose">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+        <div class="mobile-menu-panel">
+            <button class="mobile-close" id="mobileClose">
+                <i class="fa fa-times"></i>
+            </button>
+
+            <ul class="mobile-nav-list">
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Hoodies</a></li>
+                <li><a href="#">Shirts</a></li>
+                <li><a href="#">Shorts</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+
+            <div class="mobile-social">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" class="anchor">
+
+        <section class="slider-section">
+            <div id="ctrl" class="silder-control-holder">
+                <div class="ctrlbtn">
+                    &#10094;
+                </div>
+                <div class="ctrlbtn">
+                    &#10095;
+                </div>
+            </div>
+
+            <div class="slider-domstuff">
+                <h1 class="slider-title">
+                    New Arrivals
+                </h1>
+                <div>
+                    Y2K Clothing & Accessories
+                </div>
+
+                <a href="#" class="basic-button">BUY NOW</a>
+            </div>
+
+            <div class="wrap">
+                <img src="/images/slider/curtains.jpg" data-sampler="displacement" style="opacity:0;"
+                    crossorigin="anonymous" />
+                <img src="/images/slider/slider-1.jpg" class="slide-images" style="opacity:0.0;"
+                    crossorigin="anonymous" />
+                <img src="/images/slider/slider-2.jpg" class="slide-images" style="opacity:0.0;"
+                    crossorigin="anonymous" />
+                <img src="/images/slider/slider-3.jpg" class="slide-images" style="opacity:0.0;"
+                    crossorigin="anonymous" />
+                <img src="/images/slider/slider-4.jpg" class="slide-images" style="opacity:0.0;"
+                    crossorigin="anonymous" />
+                <img src="/images/slider/slider-5.jpg" class="slide-images" style="opacity:0.0;"
+                    crossorigin="anonymous" />
+                <img src="/images/slider/slider-6.jpg" class="slide-images" style="opacity:0.0;"
+                    crossorigin="anonymous" />
+            </div>
+
+            <div id="c" class="slider-canvas"></div>
+
+            <div class="slider-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </section>
+
+        <section class="top-banners" aria-label="Promotional banners">
+            <div class="top-banners-item">
+                <img src="/images/marquee.gif" alt="Descuentos especiales">
+            </div>
+        </section>
+
+        <!-- FEATURED COLLECTION -->
+
+        <section class="featured-section">
+            <div class="featured-wrapper">
+
+                <header class="featured-header">
+                    <nav class="featured-filter">
+                        <button class="filter-btn active" data-category="pants">pants</button>
+                        <button class="filter-btn" data-category="hoodies">hoodies</button>
+                        <button class="filter-btn" data-category="caps">caps</button>
+                        <button class="filter-btn" data-category="tshirts">t-shirts</button>
+                        <button class="filter-btn" data-category="hats">hats</button>
+                    </nav>
+                </header>
+
+                <div class="featured-slider-wrapper">
+                    <button class="slider-btn slider-prev">&#10094;</button>
+
+                    <div class="featured-slider" id="featuredSlider"></div>
+
+                    <button class="slider-btn slider-next">&#10095;</button>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section class="collection-strip" aria-label="Shop categories">
+            <ul class="collection-list">
+                <li class="collection-item">
+                    <a href="/collections/hoodies-for-men-women">
+                        <img src="/images/categories/category-1.webp" alt="Hoodies">
+                    </a>
+                </li>
+
+                <li class="collection-item">
+                    <a href="/collections/baggy-pants">
+                        <img src="/images/categories/category-2.webp" alt="Baggy Pants">
+                    </a>
+                </li>
+
+                <li class="collection-item">
+                    <a href="/collections/vest">
+                        <img src="/images/categories/category-3.webp" alt="Vest">
+                    </a>
+                </li>
+
+                <li class="collection-item">
+                    <a href="/collections/boxy-oversized-tshirt">
+                        <img src="/images/categories/category-4.jpg" alt="T-Shirts">
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- MAIN COLLECTION -->
+
+        <section id="#" class="arrival-container">
+            <div class="arrival-grid">
+                <div class="arrival-div">
+                    <h2 class="arrival-heading">NEW ARRIVALS</h2>
+                </div>
+
+                <div class="arrival-list" id="arrivalList"><!-- DINAMIC CONTENT --></div>
+
+                <div class="arrive-bottom-div">
+                    <a class="arrival-btn" href="#">VIEW ALL</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BISECTION -->
+
+        <section class="bisection">
+            <div class="bisection-wrapper">
+
+                <ul class="bisection-list">
+
+                    <li class="bisection-item">
+                        <a href="#" class="bisection-link">
+                            <figure class="bisection-figure">
+                                <img src="/images/genderf.png" alt="Y2K Fashion Women" class="bisection-image"
+                                    loading="lazy">
+                            </figure>
+                        </a>
+                    </li>
+
+                    <li class="bisection-item">
+                        <a href="#" class="bisection-link">
+                            <figure class="bisection-figure">
+                                <img src="/images/genderm.png" alt="Y2K Fashion Men" class="bisection-image"
+                                    loading="lazy">
+                            </figure>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- VIDEO COLLECTION -->
+
+        <section class="video-section" aria-label="Video promocional principal">
+            <div class="video-wrapper">
+                <video class="video-bg" autoplay muted loop playsinline preload="metadata"
+                    poster="/videos/poster-1.webp">
+                    <source src="/videos/video-1.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+            </div>
+        </section>
+
+        <section class="press-media-section">
+            <div class="press-media-container">
+                <header class="press-media-header">
+                    <p class="press-media-label">Prensa & Medios</p>
+                </header>
+
+                <div class="press-media-grid">
+
+                    <article class="press-media-card">
+                        <a href="#" class="press-media-image-link">
+                            <img src="/images/reviews/brand-1.png" alt="">
+                        </a>
+                        <p class="press-media-text">
+                            Lo que hace única a CROWN es su visión de reinventar la estética Y2K con piezas exclusivas,
+                            audaces y llenas de actitud.
+                        </p>
+                    </article>
+
+                    <article class="press-media-card">
+                        <a href="#" class="press-media-image-link">
+                            <img src="/images/reviews/brand-2.png" alt="">
+                        </a>
+                        <p class="press-media-text">
+                            Desde la selección de telas hasta los detalles gráficos inspirados en los 2000s, cada prenda
+                            refleja identidad, estilo y confianza.
+                        </p>
+                    </article>
+
+                    <article class="press-media-card">
+                        <a href="#" class="press-media-image-link">
+                            <img src="/images/reviews/brand-3.png" alt="">
+                        </a>
+                        <p class="press-media-text">
+                            CROWN impulsa una nueva generación que vive la moda sin reglas, combinando nostalgia Y2K con
+                            una vibra moderna y urbana.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-container">
+
+                <!-- LEFT: LEGAL / SUPPORT NAV -->
+                <nav class="footer-nav footer-nav--legal" aria-label="Footer legal navigation">
+                    <ul class="footer-list">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </nav>
+
+                <!-- CENTER: COPYRIGHT -->
+                <p class="footer-copyright">
+                    CROWN © 2026
+                </p>
+
+                <!-- RIGHT: SOCIAL NAV -->
+                <nav class="footer-nav footer-nav--social" aria-label="Footer social links">
+                    <ul class="footer-list">
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                TikTok
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                YouTube
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </footer>
+    </main>
+
+    <script src="/js/header.js"></script>
+    <script src="/js/curtains-umd.js"></script>
+    <script src="/js/webglcurtslider.js"></script>
+    <script src="/js/slider.js"></script>
+    <script src="/js/featured.js"></script>
+    <script src="/js/arrives.js"></script>
+</body>
+
+</html>
