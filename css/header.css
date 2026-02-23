@@ -38,6 +38,7 @@
 
 .site-logo {
   width: 120px;
+  display: block;
   /*transition: all 0.3s ease;*/
 }
 

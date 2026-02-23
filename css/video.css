@@ -5,20 +5,15 @@
 }
 
 .video-wrapper {
-  position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; 
+  position: relative;
+  aspect-ratio: auto;
 }
 
 .video-bg {
   width: 100%;
-  height: 100%;
+  height: 600px;
   object-fit: cover;
   display: block;
 }
 
-@media (min-width: 768px) {
-  .video-wrapper {
-    aspect-ratio: 21 / 9; 
-  }
-}

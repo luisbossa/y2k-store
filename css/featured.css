@@ -204,7 +204,7 @@
   }
 
   .featured-filter {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     overflow-x: auto;
     padding-bottom: 10px;
   }

@@ -187,7 +187,7 @@
 .indicator {
   width: clamp(30px, 8vw, 60px);
   height: 3px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   overflow: hidden;
   position: relative;
 }
@@ -203,10 +203,20 @@
 }
 
 .indicator.active::after {
-  animation: fillBar 6s linear forwards; 
+  animation: fillBar 6s linear forwards;
 }
 
 @keyframes fillBar {
-  from { width: 0%; }
-  to { width: 100%; }
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .silder-control-holder {
+    padding: 0 0.6rem;
+  }
 }
