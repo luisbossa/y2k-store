@@ -5,7 +5,7 @@
 
 .arrival-grid {
   display: grid;
-  gap: 40px;
+  gap: 10px;
 }
 
 .arrival-div {
