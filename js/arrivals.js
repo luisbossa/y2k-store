@@ -73,17 +73,9 @@ const products = [
   },
 ];
 
-// ===============================
-// UTILITIES
-// ===============================
-
 function formatCRC(number) {
   return "₡ " + number.toLocaleString("es-CR");
 }
-
-// ===============================
-// CARD TEMPLATE
-// ===============================
 
 function createProductCard(product) {
   return `
@@ -125,10 +117,6 @@ function createProductCard(product) {
     </product-card>
   `;
 }
-
-// ===============================
-// RENDER
-// ===============================
 
 function renderProducts() {
   const container = document.getElementById("arrivalList");
