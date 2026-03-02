@@ -41,3 +41,10 @@ window.addEventListener("scroll", () => {
     .querySelector(".site-header")
     .classList.toggle("is-scrolled", window.scrollY > 20);
 });
+
+const logoVideo = document.getElementById("logoVideo");
+
+logoVideo.addEventListener("ended", () => {
+  logoVideo.currentTime = 0.033; 
+  logoVideo.play();
+});

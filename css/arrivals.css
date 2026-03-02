@@ -23,13 +23,19 @@
 .arrival-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px 15px;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
 }
 
 .arrival-card {
   display: grid;
-  gap: 20px;
   position: relative;
+  padding: 30px 0 45px;
+  border: 1px solid #c2c2c2;
+  border-left: 0;
+  border-bottom: 0;
+  gap: 20px;
 }
 
 .arrival-figure {
@@ -124,11 +130,13 @@
 /* Title */
 
 .product-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
+  font-style: italic;
   letter-spacing: 0.06em;
   line-height: 1.4;
   text-decoration: none;
+  text-transform: uppercase;
   transition: opacity 0.2s ease;
   max-width: 90%;
 }
@@ -160,8 +168,8 @@
 }
 
 .variant-circle {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
@@ -179,6 +187,5 @@
 @media (min-width: 768px) {
   .arrival-list {
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px 20px;
   }
 }
