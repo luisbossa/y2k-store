@@ -47,14 +47,14 @@
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 768px) {
-  .bisection-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (min-width: 1200px) {
   .bisection-list {
     gap: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bisection-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
