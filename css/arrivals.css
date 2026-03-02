@@ -1,6 +1,6 @@
 .arrival-container {
   width: 100%;
-  padding: 4rem 20px;
+  padding: 4rem 0;
 }
 
 .arrival-grid {
@@ -31,11 +31,10 @@
 .arrival-card {
   display: grid;
   position: relative;
-  padding: 30px 0 45px;
+  padding: 18px 0 40px;
   border: 1px solid #c2c2c2;
   border-left: 0;
   border-bottom: 0;
-  gap: 20px;
 }
 
 .arrival-figure {
@@ -163,8 +162,8 @@
 .product-variants {
   display: flex;
   justify-content: center;
-  gap: 8px;
   margin-top: 6px;
+  gap: 12px;
 }
 
 .variant-circle {
@@ -185,6 +184,10 @@
 }
 
 @media (min-width: 768px) {
+  .arrival-container {
+    padding: 4rem 20px;
+  }
+
   .arrival-list {
     grid-template-columns: repeat(4, 1fr);
   }
