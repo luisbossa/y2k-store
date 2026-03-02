@@ -55,6 +55,23 @@ a {
   text-decoration: inherit;
 }
 
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
 ul {
   margin: 0;
 }
