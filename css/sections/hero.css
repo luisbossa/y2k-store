@@ -1,0 +1,257 @@
+/* ================= HERO SLIDER ================= */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000;
+  color: #efefef;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+.hero-canvas,
+.hero-images {
+  position: absolute;
+  inset: 0;
+}
+
+/* Las imágenes sólo sirven de texturas para WebGL */
+.hero-images img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.hero-controls {
+  width: 100%;
+  position: absolute;
+  top: 45%;
+  right: 0;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.hero-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: var(--gutter);
+  margin-bottom: clamp(2rem, 7vh, 4.5rem);
+  z-index: 5;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  margin: 0 0 10px;
+  font-size: clamp(1.9rem, 1rem + 3.2vw, 4rem);
+  font-weight: normal;
+  line-height: 1em;
+  font-style: italic;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: clamp(0.85rem, 0.75rem + 0.3vw, 1.05rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.basic-button {
+  display: inline-block;
+  padding: 12px 34px;
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Sombra inferior para que el texto se lea sobre cualquier slide */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 45%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Tablets en vertical: 100vh sería demasiado alto */
+@media (max-width: 1024px) and (orientation: portrait) {
+  .hero {
+    min-height: 75svh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 72svh;
+  }
+
+  .hero-controls {
+    padding: 0 0.6rem;
+  }
+
+  .hero-controls .round-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ================= INDICADOR + SWIPE ================= */
+
+/* El gesto horizontal lo maneja el slider; el vertical sigue haciendo scroll. */
+.hero {
+  touch-action: pan-y;
+}
+
+.hero-dots {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(2rem, 7vh, 4.5rem);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px 6px 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(40, 40, 48, 0.6), rgba(0, 0, 0, 0.55));
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-counter {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.hero-counter strong {
+  color: #fff;
+  font-size: 0.95rem;
+  text-shadow: 0 0 10px rgba(185, 196, 255, 0.9);
+}
+
+.hero-dot-list {
+  display: flex;
+  align-items: center;
+}
+
+.hero-dot {
+  height: 32px;
+  min-width: 24px;
+  display: grid;
+  place-items: center;
+  padding: 0 4px;
+}
+
+/* Esfera cromada */
+.hero-dot span {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 30%, #fff 0%, #c9c9c9 45%, #7d7d7d 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+  opacity: 0.6;
+  transition:
+    width 0.4s var(--ease-out),
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-dot:hover span {
+  opacity: 1;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+/* La activa se estira en una píldora que se va llenando hasta el próximo cambio */
+.hero-dot.is-active span {
+  width: 38px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.7),
+    0 0 14px rgba(185, 196, 255, 0.8);
+}
+
+.hero-dot.is-active span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #d7ddff, #ffffff 60%, #f3c6ff);
+  transform-origin: left center;
+}
+
+.hero-dots.is-autoplay .hero-dot.is-active span::after {
+  animation: hero-dot-fill var(--hero-delay, 6s) linear forwards;
+}
+
+@keyframes hero-dot-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dots .hero-dot.is-active span::after {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* En móvil la cápsula va centrada abajo, debajo del botón */
+  .hero-dots {
+    right: 50%;
+    bottom: 10px;
+    transform: translateX(50%);
+    gap: 8px;
+    padding: 2px 4px 2px 12px;
+  }
+
+  .hero-dot {
+    min-width: 20px;
+    padding: 0 3px;
+  }
+
+  .hero-dot span {
+    width: 8px;
+    height: 8px;
+  }
+
+  .hero-dot.is-active span {
+    width: 28px;
+  }
+
+  .hero-content {
+    margin-bottom: 64px;
+  }
+}

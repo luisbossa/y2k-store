@@ -1,0 +1,195 @@
+/* ================= MUJER / HOMBRE =================
+   Dos ventanas Y2K con el arte completo, resplandor del color de cada colección
+   y una barra de acción cromada abajo. */
+
+.bisection {
+  width: 100%;
+  padding: var(--section-space) var(--gutter);
+}
+
+.bisection-header {
+  text-align: center;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.bisection-header .section-heading {
+  margin: 0;
+}
+
+.bisection-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .bisection-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Color de cada colección (toma los tonos del propio arte) */
+.bisection-item--women {
+  --accent: #ff6fd8;
+  --accent-soft: rgba(255, 111, 216, 0.55);
+}
+
+.bisection-item--men {
+  --accent: #4f9dff;
+  --accent-soft: rgba(79, 157, 255, 0.55);
+}
+
+/* ================= CARD ================= */
+
+.bisection-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--chrome-gradient);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 18px 45px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s ease;
+}
+
+.bisection-card:hover,
+.bisection-card:focus-visible {
+  transform: translateY(-8px);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 24px 55px rgba(0, 0, 0, 0.28),
+    0 0 0 2px var(--accent),
+    0 0 40px var(--accent-soft);
+}
+
+.bisection-card:focus-visible {
+  outline: none;
+}
+
+.bisection-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  padding: 6px 10px 6px 14px;
+  background: linear-gradient(180deg, #4b4b4b, #111 55%, #000);
+  color: var(--color-light);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* El primer "botón" de la barra toma el color de la colección */
+.bisection-bar .y2k-window-dots span:first-child {
+  background: radial-gradient(circle at 35% 30%, #fff, var(--accent) 55%, #222);
+}
+
+/* ================= IMAGEN ================= */
+
+.bisection-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin: 8px 8px 0;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  background: #111;
+}
+
+.bisection-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.bisection-card:hover .bisection-image {
+  transform: scale(1.05);
+}
+
+/* Destello que cruza la imagen al pasar el mouse */
+.bisection-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.45) 50%, transparent 65%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.bisection-card:hover .bisection-media::after {
+  transform: translateX(120%);
+  transition: transform 0.9s ease;
+}
+
+/* ================= BARRA DE ACCIÓN ================= */
+
+.bisection-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 16px;
+}
+
+.bisection-text {
+  display: grid;
+  gap: 2px;
+}
+
+.bisection-label {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.8rem + 0.8vw, 1.35rem);
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bisection-count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.bisection-count:empty {
+  display: none;
+}
+
+.bisection-arrow {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--glossy-gradient);
+  background-color: #111;
+  border: 1px solid #000;
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition:
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s ease;
+}
+
+.bisection-card:hover .bisection-arrow {
+  transform: translateX(4px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 16px var(--accent);
+}

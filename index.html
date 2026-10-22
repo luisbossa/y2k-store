@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inzone — ropa y accesorios estilo Y2K hechos en Costa Rica.">
+    <title>Inzone | Ropa y accesorios Y2K</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Recursos críticos del primer pantallazo -->
+    <link rel="preload" href="fonts/Protomo-Outline.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="images/slider/slider-1.jpg" as="image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap">
+
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/components/ui.css">
+    <link rel="stylesheet" href="css/components/product-card.css">
+    <link rel="stylesheet" href="css/components/cart-drawer.css">
+    <link rel="stylesheet" href="css/sections/header.css">
+    <link rel="stylesheet" href="css/sections/hero.css">
+    <link rel="stylesheet" href="css/sections/marquee.css">
+    <link rel="stylesheet" href="css/sections/featured.css">
+    <link rel="stylesheet" href="css/sections/categories.css">
+    <link rel="stylesheet" href="css/sections/arrivals.css">
+    <link rel="stylesheet" href="css/sections/benefits.css">
+    <link rel="stylesheet" href="css/sections/bisection.css">
+    <link rel="stylesheet" href="css/sections/drop.css">
+    <link rel="stylesheet" href="css/sections/video.css">
+    <link rel="stylesheet" href="css/sections/press.css">
+    <link rel="stylesheet" href="css/sections/newsletter.css">
+    <link rel="stylesheet" href="css/sections/footer.css">
+
+    <script src="js/vendor/curtains-umd.js" defer></script>
+    <script src="js/pages/home.js" type="module"></script>
+</head>
+
+<body>
+    <main id="main">
+
+        <!-- HERO SLIDER (WebGL) -->
+        <section class="hero" aria-label="Novedades">
+            <div class="hero-controls">
+                <button class="ctrlbtn round-btn glossy" aria-label="Slide anterior">&#10094;</button>
+                <button class="ctrlbtn round-btn glossy" aria-label="Slide siguiente">&#10095;</button>
+            </div>
+
+            <div class="hero-content">
+                <h1 class="hero-title">Novedades</h1>
+                <div class="hero-subtitle">Ropa y accesorios Y2K</div>
+                <a href="shop.html?tag=new" class="basic-button glossy">COMPRAR AHORA</a>
+            </div>
+
+            <!-- Texturas para WebGL: la primera es el mapa de desplazamiento -->
+            <div class="hero-images wrap" aria-hidden="true">
+                <img src="images/slider/curtains.jpg" data-sampler="displacement" alt="" crossorigin="anonymous">
+                <img src="images/slider/slider-1.jpg" class="slide-images" alt="" crossorigin="anonymous">
+                <img src="images/slider/slider-2.jpg" class="slide-images" alt="" crossorigin="anonymous">
+                <img src="images/slider/slider-3.jpg" class="slide-images" alt="" crossorigin="anonymous">
+                <img src="images/slider/slider-4.jpg" class="slide-images" alt="" crossorigin="anonymous">
+                <img src="images/slider/slider-5.jpg" class="slide-images" alt="" crossorigin="anonymous">
+                <img src="images/slider/slider-6.jpg" class="slide-images" alt="" crossorigin="anonymous">
+            </div>
+
+            <div id="heroCanvas" class="hero-canvas"></div>
+        </section>
+
+        <!-- MARQUEE -->
+        <section class="top-banners" aria-label="Promociones">
+            <div class="top-banners-item">
+                <img src="images/marquee.gif" alt="Descuentos especiales" height="40">
+            </div>
+        </section>
+
+        <!-- FEATURED COLLECTION -->
+        <section class="featured-section textured-bg" aria-label="Colección destacada">
+            <div class="featured-wrapper">
+                <header class="featured-header">
+                    <p class="section-kicker">Arma tu estilo</p>
+                    <h2 class="section-heading">Destacados</h2>
+                </header>
+
+                <nav class="featured-filter" data-scroll-fade aria-label="Filtrar por categoría">
+                    <button class="filter-btn active" data-category="pants" aria-pressed="true">pantalones</button>
+                    <button class="filter-btn" data-category="hoodies" aria-pressed="false">sudaderas</button>
+                    <button class="filter-btn" data-category="caps" aria-pressed="false">gorras</button>
+                    <button class="filter-btn" data-category="tees" aria-pressed="false">camisetas</button>
+                    <button class="filter-btn" data-category="hats" aria-pressed="false">gorros</button>
+                </nav>
+
+                <div class="featured-slider-wrapper">
+                    <button class="slider-btn slider-prev round-btn glossy" aria-label="Anterior">&#10094;</button>
+                    <div class="featured-slider" id="featuredSlider" data-scroll-progress><!-- DYNAMIC CONTENT --></div>
+                    <button class="slider-btn slider-next round-btn glossy" aria-label="Siguiente">&#10095;</button>
+                </div>
+
+                <div class="featured-footer">
+                    <a href="shop.html?cat=pants" class="arrival-btn glossy" id="featuredViewAll">VER TODO</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="collection-strip" data-scroll-progress aria-label="Categorías">
+            <ul class="collection-list">
+                <li class="collection-item">
+                    <a href="shop.html?cat=hoodies">
+                        <img src="images/categories/category-1.webp" alt="Sudaderas" loading="lazy" decoding="async">
+                    </a>
+                </li>
+                <li class="collection-item">
+                    <a href="shop.html?cat=tees">
+                        <img src="images/categories/category-2.webp" alt="Camisetas" loading="lazy" decoding="async">
+                    </a>
+                </li>
+                <li class="collection-item">
+                    <a href="shop.html?cat=bottoms">
+                        <img src="images/categories/category-3.webp" alt="Parte de abajo" loading="lazy" decoding="async">
+                    </a>
+                </li>
+                <li class="collection-item">
+                    <a href="shop.html?cat=sleeveless">
+                        <img src="images/categories/category-4.jpg" alt="Sin mangas" loading="lazy" decoding="async">
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- NOVEDADES -->
+        <section id="new-arrivals" class="arrival-container textured-bg">
+            <div class="arrival-grid">
+                <div class="arrival-div">
+                    <p class="section-kicker">Recién llegado</p>
+                    <h2 class="section-heading">Novedades</h2>
+                </div>
+
+                <div class="product-grid" id="arrivalList"><!-- DYNAMIC CONTENT --></div>
+
+                <div class="arrive-bottom-div">
+                    <a class="arrival-btn glossy" href="shop.html?tag=new">VER TODO</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits" aria-label="Beneficios">
+            <ul class="benefits-list">
+                <li class="benefit">
+                    <span class="benefit-icon"><svg class="icon"><use href="#icon-truck"/></svg></span>
+                    <div>
+                        <p class="benefit-title">Envío a todo CR</p>
+                        <p class="benefit-text">Gratis en compras +₡30 000</p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <span class="benefit-icon"><svg class="icon"><use href="#icon-lock"/></svg></span>
+                    <div>
+                        <p class="benefit-title">Pago seguro</p>
+                        <p class="benefit-text">Tarjeta y SINPE Móvil</p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <span class="benefit-icon"><svg class="icon"><use href="#icon-refresh"/></svg></span>
+                    <div>
+                        <p class="benefit-title">Cambios fáciles</p>
+                        <p class="benefit-text">Hasta 30 días después</p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <span class="benefit-icon"><svg class="icon"><use href="#icon-sparkle"/></svg></span>
+                    <div>
+                        <p class="benefit-title">Lanzamientos limitados</p>
+                        <p class="benefit-text">Piezas que no se repiten</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- MUJER / HOMBRE -->
+        <section class="bisection textured-bg" aria-labelledby="bisectionTitle">
+            <header class="bisection-header">
+                <p class="section-kicker">Compra por estilo</p>
+                <h2 class="section-heading" id="bisectionTitle">Elige tu zona</h2>
+            </header>
+            <ul class="bisection-list">
+                <li class="bisection-item bisection-item--women">
+                    <a href="shop.html?gender=women" class="bisection-card">
+                        <span class="bisection-bar">
+                            <span>mujeres.exe</span>
+                            <span class="y2k-window-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                        </span>
+                        <span class="bisection-media">
+                            <img src="images/genderf.png" alt="Colección Y2K para mujeres" class="bisection-image" width="768" height="1024"
+                                loading="lazy" decoding="async">
+                        </span>
+                        <span class="bisection-footer">
+                            <span class="bisection-text">
+                                <span class="bisection-label">Comprar mujeres</span>
+                                <span class="bisection-count" data-gender-count="women"></span>
+                            </span>
+                            <span class="bisection-arrow" aria-hidden="true">→</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="bisection-item bisection-item--men">
+                    <a href="shop.html?gender=men" class="bisection-card">
+                        <span class="bisection-bar">
+                            <span>hombres.exe</span>
+                            <span class="y2k-window-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                        </span>
+                        <span class="bisection-media">
+                            <img src="images/genderm.png" alt="Colección Y2K para hombres" class="bisection-image" width="768" height="1024"
+                                loading="lazy" decoding="async">
+                        </span>
+                        <span class="bisection-footer">
+                            <span class="bisection-text">
+                                <span class="bisection-label">Comprar hombres</span>
+                                <span class="bisection-count" data-gender-count="men"></span>
+                            </span>
+                            <span class="bisection-arrow" aria-hidden="true">→</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- NEXT DROP -->
+        <section class="drop" aria-labelledby="dropTitle">
+            <p class="section-kicker">✦ Muy pronto ✦</p>
+            <h2 class="drop-title" id="dropTitle">Próximo lanzamiento</h2>
+            <p class="drop-text drop-upcoming">
+                Chrome Season Vol. 2 — piezas limitadas que se agotan rápido. Suscríbete y entérate primero.
+            </p>
+            <p class="drop-text drop-live">¡El lanzamiento ya está disponible! Corre antes de que se agote.</p>
+
+            <!-- Fecha del drop (hora de Costa Rica, UTC-6) -->
+            <div class="countdown" data-countdown="2026-11-14T20:00:00-06:00" role="timer" aria-label="Tiempo para el próximo lanzamiento">
+                <div class="countdown-unit"><span class="countdown-value" data-unit="days">00</span><span class="countdown-label">Días</span></div>
+                <div class="countdown-unit"><span class="countdown-value" data-unit="hours">00</span><span class="countdown-label">Horas</span></div>
+                <div class="countdown-unit"><span class="countdown-value" data-unit="minutes">00</span><span class="countdown-label">Min</span></div>
+                <div class="countdown-unit"><span class="countdown-value" data-unit="seconds">00</span><span class="countdown-label">Seg</span></div>
+            </div>
+
+            <a href="#newsletter" class="drop-cta glossy">Avísame</a>
+        </section>
+
+        <!-- VIDEO -->
+        <section class="video-section" aria-label="Video promocional">
+            <div class="video-wrapper">
+                <!-- Se carga al entrar en pantalla (ver js/components/lazy-video.js) -->
+                <video class="video-bg" muted loop playsinline preload="none" data-lazy-video
+                    poster="videos/poster-1.webp">
+                    <source data-src="videos/video-1.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+            </div>
+        </section>
+
+        <!-- PRESS / BLOG -->
+        <section class="press-media-section textured-bg">
+            <div class="press-media-container">
+                <header class="press-media-header">
+                    <p class="section-kicker">Hablan de nosotros</p>
+                    <h2 class="section-heading">Blog Y2K</h2>
+                </header>
+
+                <div class="press-media-grid" data-scroll-progress>
+                    <article class="press-media-card">
+                        <a href="info.html?page=about" class="press-media-image-link">
+                            <img src="images/reviews/brand-1.png" alt="Logo de medio" loading="lazy">
+                        </a>
+                        <p class="press-media-text">
+                            Lo que hace única a CROWN es su visión de reinventar la estética Y2K con piezas exclusivas,
+                            audaces y llenas de actitud.
+                        </p>
+                    </article>
+
+                    <article class="press-media-card">
+                        <a href="info.html?page=about" class="press-media-image-link">
+                            <img src="images/reviews/brand-2.png" alt="Logo de medio" loading="lazy">
+                        </a>
+                        <p class="press-media-text">
+                            Desde la selección de telas hasta los detalles gráficos inspirados en los 2000s, cada prenda
+                            refleja identidad, estilo y confianza.
+                        </p>
+                    </article>
+
+                    <article class="press-media-card">
+                        <a href="info.html?page=about" class="press-media-image-link">
+                            <img src="images/reviews/brand-3.png" alt="Logo de medio" loading="lazy">
+                        </a>
+                        <p class="press-media-text">
+                            CROWN impulsa una nueva generación que vive la moda sin reglas, combinando nostalgia Y2K con
+                            una vibra moderna y urbana.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- NEWSLETTER -->
+        <section class="newsletter textured-bg" id="newsletter" aria-labelledby="newsletterTitle">
+            <div class="y2k-window">
+                <div class="y2k-window-bar">
+                    <span>club_inzone.exe</span>
+                    <span class="y2k-window-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                </div>
+                <div class="y2k-window-body">
+                    <p class="section-kicker">Únete al club</p>
+                    <h2 class="newsletter-title" id="newsletterTitle">Únete a la zona</h2>
+                    <p class="newsletter-text">
+                        Acceso anticipado a los lanzamientos, reposiciones y un <strong>10% de descuento</strong> en tu primera compra.
+                    </p>
+                    <form class="newsletter-form" id="newsletterForm" novalidate>
+                        <label for="newsletterEmail" class="visually-hidden">Correo electrónico</label>
+                        <input type="email" id="newsletterEmail" name="email" placeholder="tu@correo.com"
+                            autocomplete="email" required>
+                        <button type="submit" class="glossy">Suscribirme</button>
+                    </form>
+                    <p class="newsletter-message" id="newsletterMessage" role="status" aria-live="polite"></p>
+                    <p class="newsletter-legal">Sin spam. Puedes darte de baja cuando quieras.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

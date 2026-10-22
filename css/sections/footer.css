@@ -1,0 +1,128 @@
+/* ================= FOOTER ================= */
+
+.site-footer {
+  background: linear-gradient(180deg, #1c1c1c, #070707);
+  color: var(--color-light);
+  font-size: 0.85rem;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem 1.5rem;
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.footer-brand {
+  grid-column: 1 / -1;
+}
+
+.footer-brand-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 1.5rem + 3vw, 3.5rem);
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #fff 0%, #bdbdbd 48%, #6e6e6e 52%, #e6e6e6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-tagline {
+  max-width: 34ch;
+  margin: 0.9rem 0 0;
+  opacity: 0.6;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #b9b9b9;
+}
+
+.footer-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list a {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition:
+    opacity 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.footer-list a:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 18px;
+  border-top: 1px solid #2c2c2c;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-copyright {
+  margin: 0;
+  opacity: 0.6;
+}
+
+.footer-payments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-payments li {
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--chrome-gradient);
+  border: 1px solid #000;
+  color: var(--color-ink);
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 600px) {
+  .footer-main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .footer-main {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compra ropa y accesorios estilo Y2K: hoodies, t-shirts, pants, jeans, caps y más.">
+    <title>Tienda | Inzone</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="preload" href="fonts/Protomo-Outline.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap">
+
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/components/ui.css">
+    <link rel="stylesheet" href="css/components/product-card.css">
+    <link rel="stylesheet" href="css/components/cart-drawer.css">
+    <link rel="stylesheet" href="css/sections/header.css">
+    <link rel="stylesheet" href="css/sections/footer.css">
+    <link rel="stylesheet" href="css/pages/page.css">
+    <link rel="stylesheet" href="css/pages/shop.css">
+
+    <script src="js/pages/shop.js" type="module"></script>
+</head>
+
+<body>
+    <main id="main" class="page textured-bg">
+        <header class="page-header container">
+            <p class="section-kicker" id="shopKicker">Tienda Inzone</p>
+            <h1 class="page-title" id="shopTitle">Toda la tienda</h1>
+        </header>
+
+        <div class="container">
+            <div class="shop-toolbar">
+                <div class="chip-row chip-row--scroll" id="shopChips" data-scroll-fade role="group" aria-label="Categorías"></div>
+
+                <div class="shop-controls">
+                    <form class="shop-search" id="shopSearchForm" role="search">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-search"/></svg>
+                        <label for="shopSearch" class="visually-hidden">Buscar en la tienda</label>
+                        <input type="search" id="shopSearch" placeholder="Buscar…" autocomplete="off">
+                    </form>
+                    <label class="select-label">Género
+                        <select id="shopGender"></select>
+                    </label>
+                    <label class="select-label">Ordenar
+                        <select id="shopSort"></select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="shop-meta">
+                <p class="shop-count" id="shopCount" aria-live="polite"></p>
+                <div class="chip-row" id="shopActive" hidden></div>
+            </div>
+
+            <div class="product-grid" id="shopGrid"></div>
+        </div>
+    </main>
+</body>
+
+</html>

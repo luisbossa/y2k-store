@@ -1,0 +1,805 @@
+/* ================= UI COMPONENTS =================
+   Piezas reutilizables en todas las páginas: ventana Y2K, botones, formularios,
+   chips, stepper, acordeón, estados vacíos, toast… */
+
+/* ================= A11Y / LAYOUT ================= */
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 10001;
+  padding: 10px 16px;
+  background: var(--color-ink);
+  color: var(--color-light);
+  border-radius: 8px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Bloquea el scroll del fondo cuando hay un panel abierto */
+html.has-overlay,
+html.has-overlay body {
+  overflow: hidden;
+}
+
+/* ================= Y2K WINDOW ================= */
+
+.y2k-window {
+  border: 1px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--chrome-gradient);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 24px 60px rgba(0, 0, 0, 0.25);
+  color: var(--color-ink);
+}
+
+.y2k-window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 34px;
+  padding: 6px 10px 6px 14px;
+  background: linear-gradient(180deg, #4b4b4b, #111 55%, #000);
+  color: var(--color-light);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.y2k-window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.y2k-window-dots span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, #9a9a9a 55%, #444);
+  border: 1px solid #000;
+}
+
+.window-close {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, #9a9a9a 55%, #444);
+  border: 1px solid #000;
+  color: #000;
+  font-size: 12px;
+}
+
+.window-close:hover {
+  box-shadow: 0 0 10px #fff;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--lg {
+  min-height: 54px;
+  font-size: 0.9rem;
+}
+
+.btn--sm {
+  min-height: 38px;
+  padding: 0 18px;
+  font-size: 0.72rem;
+}
+
+/* Variante plateada (acción secundaria) */
+.btn--chrome {
+  background: var(--chrome-gradient);
+  border: 1px solid #000;
+  color: var(--color-ink);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 #fff;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn--chrome:hover {
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 0 14px rgba(255, 255, 255, 0.9);
+}
+
+.btn--chrome:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-link {
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.btn-link:hover {
+  opacity: 0.7;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ================= CHIPS ================= */
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip-row--scroll {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px 2px 6px;
+}
+
+.chip-row--scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  flex: 0 0 auto;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.chip:hover {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--glossy-gradient);
+  background-color: #111;
+  border-color: #000;
+  color: var(--color-light);
+}
+
+.chip--removable span {
+  margin-left: 4px;
+  font-size: 1rem;
+  line-height: 0;
+}
+
+/* ================= STEPPER ================= */
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 999px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.stepper button {
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.stepper button:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.stepper span {
+  min-width: 26px;
+  text-align: center;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stepper--lg button {
+  width: 44px;
+  height: 44px;
+}
+
+.stepper--lg span {
+  min-width: 36px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress {
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  background: #fff;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(180deg, #d7ddff, #7d8cff 50%, #5161ff 51%, #a9b3ff);
+  transition: width 0.5s var(--ease-out);
+}
+
+/* ================= FORMS ================= */
+
+.field {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .field-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.field label,
+.pdp-option legend,
+.pdp-label,
+.select-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.field input,
+.field select,
+.field textarea,
+.select-label select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.select-label select:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.12),
+    0 0 0 3px rgba(255, 255, 255, 0.95),
+    0 0 16px rgba(160, 175, 255, 0.9);
+}
+
+[aria-invalid="true"] {
+  border-color: #b00020 !important;
+}
+
+.field-error {
+  margin: 0;
+  min-height: 0;
+  color: #b00020;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+.form-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.form-hint a {
+  text-decoration: underline;
+}
+
+.form-hint--center {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.form-hint .icon {
+  vertical-align: -0.15em;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: #111;
+}
+
+.checkbox a {
+  text-decoration: underline;
+}
+
+/* Tarjetas de opción (envío / pago) */
+.option-cards {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.option-card:hover {
+  background: #fff;
+}
+
+.option-card:has(input:checked) {
+  background: #fff;
+  border-color: #000;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 18px rgba(255, 255, 255, 0.9);
+}
+
+.option-card.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.option-card input {
+  width: 18px;
+  height: 18px;
+  accent-color: #111;
+  flex: 0 0 auto;
+}
+
+.option-card-body {
+  flex: 1;
+  display: grid;
+  gap: 2px;
+}
+
+.option-card-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.option-card-text {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.option-card-price {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ================= TABS ================= */
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.tab {
+  padding: 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tab[aria-selected="true"] {
+  background: var(--glossy-gradient);
+  background-color: #111;
+  color: var(--color-light);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* ================= ACCORDION ================= */
+
+.accordion {
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.accordion details {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.accordion summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  font-weight: 400;
+  transition: transform 0.25s ease;
+}
+
+.accordion details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.accordion details > :not(summary) {
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.accordion a {
+  text-decoration: underline;
+}
+
+/* ================= SUMMARY ROWS ================= */
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  font-size: 0.9rem;
+}
+
+.summary-row--discount {
+  color: #1b7a3a;
+  font-weight: 600;
+}
+
+.summary-row--total {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.summary-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.88rem;
+}
+
+.summary-thumb {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.summary-thumb img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.summary-qty {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.summary-line-info {
+  flex: 1;
+  display: grid;
+  min-width: 0;
+}
+
+.summary-line-title {
+  font-weight: 600;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.summary-line-meta {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+/* ================= EMPTY STATE ================= */
+
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.empty-state p {
+  margin: 0;
+  max-width: 40ch;
+  opacity: 0.8;
+}
+
+.empty-state .btn {
+  margin-top: 12px;
+}
+
+.empty-state-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 0.9rem + 1vw, 1.5rem);
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 1 !important;
+}
+
+.empty-state--page {
+  min-height: 50vh;
+  align-content: center;
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10000;
+  max-width: min(380px, calc(100vw - 32px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px 10px 10px;
+  background: var(--chrome-gradient);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  box-shadow: var(--chrome-shadow);
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  line-height: 1.35;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s var(--ease-out);
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.toast-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.toast-body {
+  flex: 1;
+}
+
+.toast-action {
+  flex: 0 0 auto;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ================= SCROLLERS (carruseles horizontales) ================= */
+
+/* Barra que indica cuánto falta por deslizar (ver js/components/scrollers.js) */
+.scroll-progress {
+  position: relative;
+  width: min(220px, 50%);
+  height: 4px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.scroll-progress[hidden] {
+  display: none;
+}
+
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #fff, #b9c4ff, #fff);
+  box-shadow: 0 0 8px rgba(185, 196, 255, 0.9);
+  transition: width 0.2s ease;
+}
+
+/* Desvanece el borde por donde todavía hay contenido */
+[data-scroll-fade].fade-end {
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+}
+
+[data-scroll-fade].fade-start {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px);
+  mask-image: linear-gradient(90deg, transparent, #000 48px);
+}
+
+[data-scroll-fade].fade-start.fade-end {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+}
+
+/* ================= TOUCH TARGETS ================= */
+
+/* Links de texto con área táctil cómoda sin cambiar su aspecto */
+.btn-link {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ================= SELECT (flecha cromada propia) =================
+   Reemplaza la flecha nativa, que queda pegada al borde redondeado. */
+
+.field select,
+.select-label select,
+.cart-line-size select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 46px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='28%25' r='75%25'%3E%3Cstop offset='0' stop-color='%23fff'/%3E%3Cstop offset='.55' stop-color='%23cdcdcd'/%3E%3Cstop offset='1' stop-color='%238a8a8a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='12' cy='12' r='11' fill='url(%23g)' stroke='%23000'/%3E%3Cpath d='M7.5 10l4.5 4.5 4.5-4.5' fill='none' stroke='%23111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 24px;
+  cursor: pointer;
+  text-overflow: ellipsis;
+}
+
+.field select::-ms-expand,
+.select-label select::-ms-expand {
+  display: none;
+}
+
+/* Versión compacta para la talla dentro del carrito */
+.cart-line-size select {
+  padding-right: 26px;
+  background-position: right 4px center;
+  background-size: 16px;
+}

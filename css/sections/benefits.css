@@ -1,0 +1,81 @@
+/* ================= BENEFITS STRIP ================= */
+
+.benefits {
+  background: var(--color-ink);
+  color: var(--color-light);
+  border-block: 1px solid #3a3a3a;
+}
+
+.benefits-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: var(--container);
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px var(--gutter);
+  border-right: 1px solid #2c2c2c;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+.benefit-icon {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--chrome-gradient);
+  border: 1px solid #000;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 0 16px rgba(255, 255, 255, 0.15);
+  color: var(--color-ink);
+  font-size: 20px;
+}
+
+.benefit-title {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.benefit-text {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  opacity: 0.65;
+}
+
+@media (max-width: 480px) {
+  .benefits-list {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit {
+    padding-block: 16px;
+    border-right: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .benefits-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .benefit {
+    border-bottom: 0;
+  }
+
+  .benefit:last-child {
+    border-right: 0;
+  }
+}

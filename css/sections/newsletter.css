@@ -1,0 +1,104 @@
+/* ================= NEWSLETTER (ventana estilo Windows 2000) ================= */
+
+.newsletter {
+  padding: var(--section-space) var(--gutter);
+}
+
+/* Comparte fondo con el blog: evita el doble espaciado entre ambas */
+.press-media-section + .newsletter {
+  padding-top: 0;
+}
+
+.newsletter .y2k-window {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.y2k-window-body {
+  padding: clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 5vw, 3.5rem);
+  text-align: center;
+  color: var(--color-ink);
+}
+
+.newsletter-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1rem + 3vw, 2.6rem);
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.newsletter-text {
+  max-width: 44ch;
+  margin: 0.9rem auto 1.75rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.newsletter-form {
+  display: flex;
+  max-width: 480px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 20px;
+  border: 0;
+  background: transparent;
+  outline: none;
+}
+
+.newsletter-form:focus-within {
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.15),
+    0 0 0 3px rgba(255, 255, 255, 0.9),
+    0 0 18px rgba(255, 255, 255, 0.9);
+}
+
+.newsletter-form button {
+  flex: 0 0 auto;
+  padding: 0 24px;
+  border: 0;
+  border-left: 1px solid #000;
+  font-size: 0.8rem;
+}
+
+.newsletter-message {
+  min-height: 1.5em;
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.newsletter-message[data-state="error"] {
+  color: #b00020;
+}
+
+.newsletter-legal {
+  margin: 0.4rem 0 0;
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+  .newsletter-form {
+    flex-direction: column;
+    border-radius: 16px;
+  }
+
+  .newsletter-form button {
+    padding: 13px;
+    border-left: 0;
+    border-top: 1px solid #000;
+  }
+}

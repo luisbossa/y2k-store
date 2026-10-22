@@ -1,0 +1,225 @@
+/* ================= FEATURED COLLECTION ================= */
+
+.featured-section {
+  width: 100%;
+  padding: var(--section-space) 0;
+}
+
+.featured-wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.featured-header {
+  text-align: center;
+  padding-inline: var(--gutter);
+}
+
+.featured-header .section-heading {
+  margin: 0;
+}
+
+.featured-filter {
+  display: flex;
+  justify-content: center;
+  margin: 1.25rem 0 clamp(1.5rem, 3vw, 2.5rem);
+  gap: clamp(8px, 2vw, 25px);
+  padding-inline: var(--gutter);
+}
+
+.filter-btn {
+  position: relative;
+  padding: 6px 12px;
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 0.7rem + 0.6vw, 1.3rem);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  opacity: 1;
+}
+
+.filter-btn::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -4px;
+  height: 2px;
+  background: var(--color-ink);
+  transform: scaleX(0);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.filter-btn.active::after {
+  transform: scaleX(1);
+}
+
+/* ================= SLIDER ================= */
+
+.featured-slider-wrapper {
+  --cards: 4;
+  --gap: 32px;
+  position: relative;
+}
+
+.featured-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 64px;
+  scrollbar-width: none;
+  transition: opacity 0.3s ease;
+  gap: var(--gap);
+  padding: 8px 64px 12px;
+}
+
+.featured-slider.fade-out {
+  opacity: 0;
+}
+
+.featured-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= CARD ================= */
+
+.product-card {
+  flex: 0 0 calc((100% - (var(--cards) - 1) * var(--gap)) / var(--cards));
+  min-width: 0;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.product-image {
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.product-card:hover .product-image {
+  transform: translateY(-6px);
+}
+
+.product-image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.18));
+  transition: opacity 0.3s ease;
+}
+
+.product-image img.secondary {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.product-image:hover img.secondary {
+  opacity: 1;
+}
+
+.product-image:hover img.primary {
+  opacity: 0;
+}
+
+.product-image.caps img.primary,
+.product-image.hats img.primary {
+  max-height: 72%;
+}
+
+.product-card .product-card__info {
+  margin-top: 14px;
+}
+
+.price-list {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.featured-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* ================= ARROWS ================= */
+
+.slider-btn {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.slider-prev {
+  left: 12px;
+}
+
+.slider-next {
+  right: 12px;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1100px) {
+  .featured-slider-wrapper {
+    --cards: 3;
+    --gap: 24px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .featured-slider-wrapper {
+    --cards: 1.6;
+    --gap: 16px;
+  }
+
+  .featured-slider {
+    padding-inline: var(--gutter);
+    scroll-padding-inline: var(--gutter);
+  }
+
+  /* En móvil se navega deslizando; la tarjeta siguiente asoma como pista */
+  .slider-btn {
+    display: none;
+  }
+
+  .featured-filter {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+
+  .featured-filter::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-slider-wrapper {
+    --cards: 1.25;
+  }
+}

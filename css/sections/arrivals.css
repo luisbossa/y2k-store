@@ -1,0 +1,36 @@
+/* ================= NEW ARRIVALS =================
+   Las tarjetas y la grilla viven en css/components/product-card.css */
+
+.arrival-container {
+  width: 100%;
+  padding: var(--section-space) 0;
+}
+
+.arrival-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.arrival-div {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.arrival-div .section-heading {
+  margin: 0;
+}
+
+.arrival-grid .product-grid {
+  margin-bottom: 2.5rem;
+}
+
+.arrive-bottom-div {
+  text-align: center;
+}
+
+.arrival-btn {
+  display: inline-block;
+  padding: 12px 36px;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,290 @@
+/* ================= PRODUCT DETAIL ================= */
+
+.pdp {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 900px) {
+  .pdp {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+  }
+
+  .pdp-gallery {
+    position: sticky;
+    top: 110px;
+  }
+}
+
+/* ================= GALLERY ================= */
+
+.pdp-gallery {
+  display: grid;
+  gap: 12px;
+}
+
+.pdp-main-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 32px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 14px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.pdp-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.2));
+  transition: transform 0.4s var(--ease-out);
+}
+
+.pdp-main-image:hover img {
+  transform: scale(1.06);
+}
+
+.pdp-thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pdp-thumb {
+  flex: 0 0 auto;
+  width: 78px;
+  height: 78px;
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  background: #fff;
+  opacity: 0.65;
+  transition:
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pdp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pdp-thumb:hover,
+.pdp-thumb.is-active {
+  opacity: 1;
+  border-color: #000;
+  box-shadow: 0 0 0 2px #000;
+}
+
+/* ================= INFO ================= */
+
+.pdp-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.4rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.pdp-price {
+  margin: 0.6rem 0 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.pdp-price span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.65;
+}
+
+.pdp-form {
+  display: grid;
+  gap: 22px;
+}
+
+.pdp-option {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.pdp-option legend {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+/* "Guía de tallas" a la derecha de la leyenda */
+.pdp-option legend .btn-link {
+  margin-left: auto;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.pdp-option .stepper {
+  justify-self: start;
+}
+
+.pdp-option legend strong {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.pdp-colors,
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.color-option {
+  cursor: pointer;
+}
+
+.color-option img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.2s ease;
+}
+
+.color-option:has(input:checked) img {
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #000;
+}
+
+.color-option:has(input:focus-visible) img {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
+
+.size-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.size-option input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+
+.size-option span {
+  min-width: 58px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.size-option:hover span {
+  background: #fff;
+}
+
+.size-option input:checked + span {
+  background: var(--glossy-gradient);
+  background-color: #111;
+  color: #fff;
+  border-color: #000;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.size-option input:focus-visible + span {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.pdp-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.pdp-actions .btn {
+  min-height: 54px;
+}
+
+.pdp-perks {
+  display: grid;
+  gap: 10px;
+  margin: 1.75rem 0;
+  padding: 16px 18px;
+  list-style: none;
+  border: 1px dashed rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.pdp-perks li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pdp-perks .icon {
+  font-size: 18px;
+  flex: 0 0 auto;
+}
+
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.size-table th,
+.size-table td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.size-table th {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ================= RELATED ================= */
+
+.related {
+  padding-top: var(--section-space);
+}
+
+.related-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.related-header .section-heading {
+  margin: 0;
+}

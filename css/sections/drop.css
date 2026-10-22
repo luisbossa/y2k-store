@@ -1,0 +1,127 @@
+/* ================= NEXT DROP COUNTDOWN ================= */
+
+.drop {
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-space) var(--gutter);
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(150, 170, 255, 0.28), transparent 60%),
+    radial-gradient(ellipse at 50% -20%, rgba(255, 255, 255, 0.12), transparent 55%),
+    #050505;
+  color: var(--color-light);
+  text-align: center;
+  isolation: isolate;
+}
+
+/* Destellos ✦ estilo Y2K */
+.drop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, #fff, transparent),
+    radial-gradient(1px 1px at 28% 70%, #fff, transparent),
+    radial-gradient(2px 2px at 46% 14%, #fff, transparent),
+    radial-gradient(1px 1px at 63% 82%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 79% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 91% 64%, #fff, transparent),
+    radial-gradient(1px 1px at 6% 86%, #fff, transparent);
+  animation: drop-twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes drop-twinkle {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.drop .section-kicker {
+  color: #b9c4ff;
+  opacity: 1;
+}
+
+.drop-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1rem + 5vw, 4.5rem);
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 18px rgba(185, 196, 255, 0.55),
+    0 0 2px #fff;
+}
+
+.drop-text {
+  max-width: 46ch;
+  margin: 1rem auto 0;
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: clamp(8px, 2vw, 20px);
+  margin: clamp(1.75rem, 4vw, 2.75rem) 0;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown-value {
+  min-width: clamp(64px, 16vw, 112px);
+  padding: clamp(10px, 2vw, 18px) 8px;
+  border-radius: 14px;
+  background: var(--chrome-gradient);
+  border: 1px solid #000;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2),
+    0 0 24px rgba(185, 196, 255, 0.25);
+  color: var(--color-ink);
+  font-size: clamp(1.75rem, 1rem + 4vw, 3.5rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.drop-cta {
+  display: inline-block;
+  padding: 13px 38px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.drop-live {
+  display: none;
+}
+
+/* Cuando el contador llega a cero */
+.drop.is-live .countdown,
+.drop.is-live .drop-upcoming {
+  display: none;
+}
+
+.drop.is-live .drop-live {
+  display: block;
+}

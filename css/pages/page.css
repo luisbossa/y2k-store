@@ -1,0 +1,77 @@
+/* ================= INNER PAGES (layout común) ================= */
+
+.page {
+  min-height: 70vh;
+  padding-bottom: var(--section-space);
+}
+
+.page-header {
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+  padding-bottom: clamp(1.25rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.page-header .section-kicker {
+  margin-bottom: 0.4rem;
+}
+
+.page-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1rem + 3.5vw, 3.2rem);
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-block: 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.breadcrumb a {
+  opacity: 0.6;
+}
+
+.breadcrumb a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.breadcrumb span[aria-hidden] {
+  opacity: 0.4;
+}
+
+.prose {
+  line-height: 1.7;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.4rem;
+}
+
+.prose a {
+  text-decoration: underline;
+}
+
+.breadcrumb a {
+  padding-block: 8px;
+}

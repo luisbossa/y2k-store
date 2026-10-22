@@ -1,0 +1,250 @@
+/* ================= PRODUCT GRID + TILE =================
+   Tarjeta compartida (home "Novedades", tienda, relacionados).
+   Mismo lenguaje que "Destacados": el producto flota sobre el fondo cromado,
+   sin cajas ni bordes, con sombra suave y texto itálico debajo. */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 5vw, 64px) clamp(14px, 3vw, 48px);
+}
+
+.product-grid.is-empty {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.product-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.product-tile-figure {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  /* Sin esto, una imagen con tamaño intrínseco grande estira la caja y desalinea los títulos */
+  min-height: 0;
+  height: auto;
+  margin-bottom: 14px;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.product-tile:hover .product-tile-figure {
+  transform: translateY(-6px);
+}
+
+.product-tile-link {
+  display: block;
+  height: 100%;
+}
+
+.product-tile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.18));
+  transition: opacity 0.3s ease;
+}
+
+.product-tile-image--secondary {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.product-tile-figure:hover .product-tile-image--secondary {
+  opacity: 1;
+}
+
+.product-tile-figure:hover .product-tile-image--primary {
+  opacity: 0;
+}
+
+.product-tile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ================= TITLE / PRICE ================= */
+
+.product-title {
+  max-width: 90%;
+  margin: 0;
+  font-size: clamp(12px, 0.7rem + 0.25vw, 15px);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  /* Máximo 2 líneas para que las tarjetas queden alineadas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-tile .product-title {
+  max-width: 100%;
+}
+
+.product-title a,
+a.product-title {
+  transition: opacity 0.2s ease;
+}
+
+.product-title a:hover,
+a.product-title:hover {
+  opacity: 0.6;
+}
+
+.price-current {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* ================= SWATCHES ================= */
+
+.product-variants {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+  gap: 8px;
+}
+
+.variant-btn {
+  border-radius: 50%;
+  line-height: 0;
+}
+
+.variant-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.variant-btn:hover .variant-circle,
+.variant-btn.is-active .variant-circle {
+  transform: scale(1.12);
+  border-color: #000;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+  .variant-circle {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ================= QUICK ADD / BADGE ================= */
+
+.quick-add {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  z-index: 3;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s var(--ease-out),
+    box-shadow 0.2s ease;
+}
+
+/* Visible al pasar el mouse, al navegar con teclado y siempre en pantallas táctiles */
+.product-image:hover .quick-add,
+.product-tile-figure:hover .quick-add,
+.quick-add:focus-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (hover: none) {
+  .quick-add {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--chrome-gradient);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 1px 0 #fff;
+  color: var(--color-ink);
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  max-width: calc(100% - 20px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .product-badge {
+    top: 8px;
+    left: 8px;
+    padding: 2px 8px;
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ================= CART BADGE BUMP ================= */
+
+.cart-wrapper.is-bumped::after {
+  animation: cart-bump 0.45s var(--ease-out);
+}
+
+@keyframes cart-bump {
+  40% {
+    transform: scale(1.45);
+    box-shadow: 0 0 14px #fff;
+  }
+}
+
+/* Área táctil de 40px alrededor del círculo de color */
+.variant-btn {
+  position: relative;
+}
+
+.variant-btn::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}

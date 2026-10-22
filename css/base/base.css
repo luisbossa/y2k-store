@@ -1,0 +1,255 @@
+/* ================= FONTS ================= */
+
+@font-face {
+  font-family: "ProtomoOutline";
+  src: url("../../fonts/Protomo-Outline.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================= TOKENS ================= */
+
+:root {
+  --color-ink: #161616;
+  --color-silver: #c4c4c4;
+  --color-light: #f7f4f4;
+  --color-border: #c2c2c2;
+
+  --font-display: "ProtomoOutline", sans-serif;
+  --font-body: "Instrument Sans", sans-serif;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --container: 1400px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section-space: clamp(3rem, 2rem + 4vw, 5.5rem);
+
+  /* Superficie cromada (paneles, ventanas, badges) */
+  --chrome-gradient: linear-gradient(180deg, #f4f4f4 0%, #cfcfcf 45%, #b4b4b4 50%, #d9d9d9 100%);
+  --chrome-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(0, 0, 0, 0.25), 0 10px 30px rgba(0, 0, 0, 0.18);
+
+  /* Botón "glossy" estilo Y2K */
+  --glossy-gradient: linear-gradient(
+    to bottom,
+    #fff 0,
+    rgba(129, 129, 129, 0.75) 3%,
+    rgba(56, 56, 56, 0.75) 50%,
+    rgba(27, 27, 27, 0.75) 50% 50%,
+    rgba(12, 12, 12, 0.75) 100%
+  );
+}
+
+/* ================= SCROLLBAR =================
+   Scroll principal con el mismo acabado cromado de los botones .glossy */
+
+html::-webkit-scrollbar {
+  width: 14px;
+}
+
+html::-webkit-scrollbar-track {
+  background: linear-gradient(to right, #9f9f9f, #dcdcdc 45%, #b5b5b5);
+  border-left: 1px solid #8d8d8d;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to right,
+    #fff 0,
+    #818181 12%,
+    #383838 50%,
+    #1b1b1b 50%,
+    #0c0c0c 100%
+  );
+  border: 1px solid var(--color-ink);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to right,
+    #fff 0,
+    #9a9a9a 12%,
+    #4a4a4a 50%,
+    #262626 50%,
+    #111 100%
+  );
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: #0c0c0c;
+}
+
+html::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Firefox (no soporta los pseudo-elementos de arriba). En Chrome, scrollbar-color
+   anularía los estilos ::-webkit-scrollbar, por eso va sólo donde no existen. */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: #383838 var(--color-silver);
+  }
+}
+
+/* ================= RESET ================= */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border: 0 solid currentColor;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  position: relative;
+  background: var(--color-silver);
+  font: 400 1rem / 1.5 var(--font-body);
+  overflow-x: clip;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ================= SHARED ================= */
+
+/* Fondo con textura de las secciones claras */
+.textured-bg {
+  color: var(--color-ink);
+  background: url("../../images/bg.avif") center / cover no-repeat;
+}
+
+/* Título de sección con la fuente outline */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.section-kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.glossy {
+  background: var(--glossy-gradient);
+  border: 1px solid var(--color-ink);
+  color: var(--color-light);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.glossy:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 14px rgba(255, 255, 255, 0.7);
+}
+
+.glossy:active {
+  transform: translateY(1px);
+}
+
+/* Botones circulares de navegación (hero y featured) */
+.round-btn {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
